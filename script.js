@@ -1,40 +1,48 @@
-// Selecting the necessary elements
+// Selecting necessary elements
 const quoteText = document.querySelector(".quote");
-const authorName = document.querySelector(".author .name");
-const quoteBtn = document.querySelector("#newQuote");
-const twitterBtn = document.getElementById("twitterShare");
+const authorName = document.querySelector(".author");
+const newQuoteBtn = document.querySelector("#newQuote");
+const copyQuoteBtn = document.querySelector("#copyQuote");
+const twitterShareBtn = document.querySelector("#twitterShare");
 
-// Function to fetch a new quote
-function randomQuote() {
-  quoteBtn.classList.add("loading");
-  quoteBtn.innerText = "Loading Quote...";
+// List of quotes
+const quotes = [
+  { text: "Today is a good day to build on @Base", author: "-- thekera404 --" },
+  { text: "It's still day one, let's keep on building together", author: "-- thekera404 --" }
+];
+
+// Function to get a random quote
+function getRandomQuote() {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const selectedQuote = quotes[randomIndex];
+
+  // Simulate loading state for 1 second
+  newQuoteBtn.classList.add("loading");
+  newQuoteBtn.innerText = "Loading...";
   
-  // Fetching random quote data from API
-  fetch("https://api.quotable.io/random")
-    .then((res) => res.json())
-    .then((result) => {
-      quoteText.innerText = result.content; // Set the new quote text
-      authorName.innerText = result.author; // Update the author name
-      quoteBtn.innerText = "New Quote";
-      quoteBtn.classList.remove("loading");
-      
-      // Trigger the Twitter share automatically when a new quote is fetched
-      twitterShare(result.content);
-    });
+  setTimeout(() => {
+    // Update the quote and author
+    quoteText.innerText = `"${selectedQuote.text}"`;
+    authorName.innerText = selectedQuote.author;
+
+    // Reset button state
+    newQuoteBtn.classList.remove("loading");
+    newQuoteBtn.innerText = "New Quote";
+  }, 1000); // 1 second delay
 }
 
-// Function to share the quote on Twitter
-function twitterShare(quote) {
-  const tweetText = quote;  // Share only the quote text
-  const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
-  window.open(tweetUrl, "_blank");
-}
+// Event listener for "New Quote" button
+newQuoteBtn.addEventListener("click", getRandomQuote);
 
-// Event listeners
-quoteBtn.addEventListener("click", randomQuote);
+// Event listener for "Copy Quote" button
+copyQuoteBtn.addEventListener("click", () => {
+  const quote = quoteText.innerText;
+  navigator.clipboard.writeText(quote);
+  alert("Quote copied to clipboard!");
+});
 
-// Optional: Share button to manually trigger Twitter share
-twitterBtn.addEventListener("click", () => {
+// Event listener for "Twitter Share" button
+twitterShareBtn.addEventListener("click", () => {
   const tweetText = quoteText.innerText;
   const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
   window.open(tweetUrl, "_blank");
