@@ -15,6 +15,7 @@ body {
   color: #fff;
 }
 
+/* Wrapper */
 .wrapper {
   background: #f1faee;
   border-radius: 15px;
@@ -31,6 +32,7 @@ header {
   margin-bottom: 20px;
 }
 
+/* Quote Section */
 .quote-container {
   position: relative;
   font-size: 1.5rem;
@@ -51,6 +53,7 @@ header {
   margin-top: 10px;
 }
 
+/* Buttons */
 .buttons {
   margin-top: 30px;
 }
@@ -91,30 +94,3 @@ header {
   color: #fff;
   transform: scale(1.1);
 }
-
-.warpcast-logo {
-  width: 24px;
-  height: 24px;
-}
-
-/* Media query for smaller screens */
-@media (max-width: 600px) {
-  .quote-container {
-    font-size: 1.2rem;
-  }
-  
-  .btn {
-    padding: 10px 15px;
-    font-size: 0.9rem;
-  }
-
-  .icon-btn {
-    width: 40px;
-    height: 40px;
-  }
-
-  .warpcast-logo {
-    width: 20px;
-    height: 20px;
-  }
-  }
