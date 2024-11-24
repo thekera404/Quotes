@@ -11,28 +11,32 @@ const quotes = [
   { text: "It's still day one, let's keep on building together", author: "-- thekera404 --" }
 ];
 
-// Function to get a random quote
-function getRandomQuote() {
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  const selectedQuote = quotes[randomIndex];
+// Current quote index
+let currentIndex = 0;
 
-  // Simulate loading state for 1 second
-  newQuoteBtn.classList.add("loading");
+// Function to get the next quote in sequence
+function getNextQuote() {
+  // Show loading state
   newQuoteBtn.innerText = "Loading...";
-  
+  newQuoteBtn.disabled = true;
+
   setTimeout(() => {
-    // Update the quote and author
+    // Cycle to the next quote
+    currentIndex = (currentIndex + 1) % quotes.length;
+    const selectedQuote = quotes[currentIndex];
+
+    // Update the quote and author text
     quoteText.innerText = `"${selectedQuote.text}"`;
     authorName.innerText = selectedQuote.author;
 
-    // Reset button state
-    newQuoteBtn.classList.remove("loading");
+    // Reset the button state
     newQuoteBtn.innerText = "New Quote";
-  }, 1000); // 1 second delay
+    newQuoteBtn.disabled = false;
+  }, 1000);
 }
 
 // Event listener for "New Quote" button
-newQuoteBtn.addEventListener("click", getRandomQuote);
+newQuoteBtn.addEventListener("click", getNextQuote);
 
 // Event listener for "Copy Quote" button
 copyQuoteBtn.addEventListener("click", () => {
@@ -47,3 +51,6 @@ twitterShareBtn.addEventListener("click", () => {
   const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
   window.open(tweetUrl, "_blank");
 });
+
+// Load the first quote when the page loads
+getNextQuote();
