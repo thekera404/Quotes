@@ -8,7 +8,8 @@ const twitterShareBtn = document.querySelector("#twitterShare");
 // List of quotes
 const quotes = [
   { text: "Today is a good day to build on @Base", author: "-- thekera404 --" },
-  { text: "It's still day one, let's keep on building together", author: "-- thekera404 --" }
+  { text: "It's still day one, let's keep on building together", author: "-- israeloroge --" }
+  { text: "It's a good sunday to build on @base", author: "-- thekera404 --" }
 ];
 
 // Current quote index
