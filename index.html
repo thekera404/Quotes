@@ -3,33 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quotes</title>
+  <title>Quotes Mini App</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="wrapper">
     <header>Quotes</header>
+
     <div class="content">
       <div class="quote-container">
         <i class="fas fa-quote-left"></i>
-        <p class="quote">"Today is a good day to build on @Base"</p>
+        <p class="quote">Loading...</p>
         <i class="fas fa-quote-right"></i>
       </div>
-      <div class="author">-- thekera404 --</div>
+      <div class="author">--</div>
+
       <div class="buttons">
         <button id="newQuote" class="btn">New Quote</button>
         <div class="share-buttons">
-          <a href="#" id="copyQuote" class="btn icon-btn" title="Copy">
+          <button id="copyQuote" class="btn icon-btn" title="Copy">
             <i class="fas fa-copy"></i>
-          </a>
-          <a href="#" id="twitterShare" class="btn icon-btn" title="Twitter">
-            <i class="fab fa-twitter"></i>
-          </a>
+          </button>
+          <button id="shareCast" class="btn icon-btn" title="Share on Farcaster">
+            <i class="fas fa-share-alt"></i>
+          </button>
         </div>
+      </div>
+
+      <div class="add-quote">
+        <input type="text" id="quoteInput" placeholder="Enter your quote">
+        <input type="text" id="authorInput" placeholder="Enter author">
+        <button id="saveQuote" class="btn">Save Quote</button>
+      </div>
+
+      <div class="saved">
+        <h3>Saved Quotes</h3>
+        <ul id="savedQuotes"></ul>
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
+
+  <script src="script.js" type="module"></script>
 </body>
 </html>

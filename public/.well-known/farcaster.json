@@ -1,0 +1,14 @@
+{
+  "frame": {
+    "version": "1",
+    "name": "Quotes",
+    "homeUrl": "https://yourdomain.com",
+    "iconUrl": "https://yourdomain.com/icon.png",
+    "splashImageUrl": "https://yourdomain.com/splash.png",
+    "splashBackgroundColor": "#ffffff",
+    "subtitle": "Daily Inspiration",
+    "description": "Browse and share motivational quotes",
+    "primaryCategory": "lifestyle",
+    "tags": ["quotes", "motivation", "base"]
+  }
+}

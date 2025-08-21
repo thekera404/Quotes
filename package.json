@@ -1,0 +1,17 @@
+{
+  "name": "quotes-mini-app",
+  "version": "1.0.0",
+  "description": "Random quotes app with Farcaster share",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "tsc",
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "@farcaster/frame-sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.0"
+  }
+}
